@@ -135,15 +135,6 @@ public void OnMapEnd() {
 
 public Action Timer_UpdateScores(Handle timer) {
     g_playerList.UpdateAll();
-    g_playerList.SortByScore();
-
-    for (int i = 0; i < g_playerList.Length; i++) {
-        char name[255];
-        Player player;
-        g_playerList.GetArray(i, player);
-        GetClientName(player.ClientId, name, sizeof(name));
-        PrintToChatAll("Player %s (%i) had score %i with an average of %.2f over %i samples.", name, player.ClientId, player.Score, player.AverageScore, player.Samples);
-    }
 
     return Plugin_Continue;
 }
